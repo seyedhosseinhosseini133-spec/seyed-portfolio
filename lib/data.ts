@@ -1,0 +1,34 @@
+export type Lang = 'en' | 'fa'
+/* ===== EDIT YOUR CONTENT HERE ===== */
+export const SKILLS: [string, number][] = [['HTML',85],['CSS',80],['JavaScript',75],['PHP',60],['MySQL',60],['Python',70],['C++',55],['C#',50],['React',65],['Next.js',60],['UI/UX Design',70]]
+export const CONTACT = { email: 'hello@example.com', telegram: 'https://t.me/', instagram: 'https://instagram.com/', github: 'https://github.com/' }
+type PText = { n: string; d: string; l: string; f: string[] }
+export const PROJECTS: { c: [string, string]; tech: string[]; demo: string; code: string; en: PText; fa: PText }[] = [
+ { c: ['#5ee6c0','#4aa8ff'], tech: ['Next.js','TypeScript','Tailwind'], demo: '#', code: 'https://github.com/',
+   en: { n: 'Project One', d: 'A short description of your first project.', l: 'Replace with the full description: the problem, your approach and the result.', f: ['Feature one','Feature two','Feature three'] },
+   fa: { n: 'پروژه اول', d: 'توضیح کوتاه درباره پروژه اول شما.', l: 'با توضیح کامل جایگزین کنید: مسئله، رویکرد و نتیجه.', f: ['ویژگی اول','ویژگی دوم','ویژگی سوم'] } },
+ { c: ['#7b6cff','#ff7ab8'], tech: ['React','PHP','MySQL'], demo: '#', code: 'https://github.com/',
+   en: { n: 'Project Two', d: 'A short description of your second project.', l: 'Replace with the full description of project two.', f: ['Feature one','Feature two'] },
+   fa: { n: 'پروژه دوم', d: 'توضیح کوتاه درباره پروژه دوم شما.', l: 'با توضیح کامل پروژه دوم جایگزین کنید.', f: ['ویژگی اول','ویژگی دوم'] } },
+ { c: ['#ffb454','#ff5f6d'], tech: ['Python','C++'], demo: '#', code: 'https://github.com/',
+   en: { n: 'Project Three', d: 'A short description of your third project.', l: 'Replace with the full description of project three.', f: ['Feature one','Feature two'] },
+   fa: { n: 'پروژه سوم', d: 'توضیح کوتاه درباره پروژه سوم شما.', l: 'با توضیح کامل پروژه سوم جایگزین کنید.', f: ['ویژگی اول','ویژگی دوم'] } },
+ { c: ['#41295a','#2f9fd8'], tech: ['C#','UI/UX'], demo: '#', code: 'https://github.com/',
+   en: { n: 'Project Four', d: 'A short description of your fourth project.', l: 'Replace with the full description of project four.', f: ['Feature one','Feature two'] },
+   fa: { n: 'پروژه چهارم', d: 'توضیح کوتاه درباره پروژه چهارم شما.', l: 'با توضیح کامل پروژه چهارم جایگزین کنید.', f: ['ویژگی اول','ویژگی دوم'] } },
+]
+/* src: image path in /public (e.g. '/photos/1.jpg'); h: tile height in px */
+export const GALLERY: { h: number; c: [string, string]; src: string }[] = [
+ { h: 300, c: ['#243b55','#5ee6c0'], src: '' }, { h: 200, c: ['#41295a','#7b6cff'], src: '' }, { h: 360, c: ['#134e5e','#71b280'], src: '' },
+ { h: 240, c: ['#614385','#516395'], src: '' }, { h: 180, c: ['#0f2027','#2c5364'], src: '' }, { h: 320, c: ['#3a1c71','#ffaf7b'], src: '' },
+]
+/* src: video path in /public (e.g. '/videos/a.mp4'), poster optional */
+export const VIDEOS: { src: string; poster?: string; c: [string, string]; en: [string, string]; fa: [string, string] }[] = [
+ { src: '', c: ['#0f2027','#4aa8ff'], en: ['Video One','Short description of the first video.'], fa: ['ویدیو اول','توضیح کوتاه درباره ویدیو اول.'] },
+ { src: '', c: ['#41295a','#5ee6c0'], en: ['Video Two','Short description of the second video.'], fa: ['ویدیو دوم','توضیح کوتاه درباره ویدیو دوم.'] },
+]
+export const ROLES: Record<Lang, string[]> = { en: ['Developer','Creative Thinker','Technology Enthusiast'], fa: ['برنامه‌نویس','اندیشمند خلاق','علاقه‌مند به فناوری'] }
+export const T: Record<Lang, Record<string, string>> = {
+ en: { home:'Home', about:'About Me', skills:'Skills', projects:'Projects', gallery:'Gallery', videos:'Videos', contact:'Contact', hi:'Hi, I’m Seyed Hossein.', lead:'Passionate about programming, technology and building ideas that can change the world.', viewP:'View my projects', contactB:'Contact me', install:'Install app', aboutT:'About me', a1h:'Who I am', a1:'I’m a developer who enjoys turning rough ideas into clean, working products. Add your personal introduction here.', a2h:'Interests', a2:'Web development, interface design, and exploring new technology.', a3h:'Journey and goals', a3:'Describe how you started programming and where you want to go next.', skillsT:'Skills', skillNote:'Drag a slider to set your real level for each skill.', projT:'Projects', galT:'Gallery', vidT:'Videos', conT:'Contact me', fName:'Your name', fMail:'Your email', fMsg:'Your message', send:'Send message', sent:'Your email app opened with the message. Press send there.', foot:'Personal Portfolio', live:'Live demo', src:'Source code', tech:'Technologies', feat:'Features', noVid:'Add a video file in lib/data.ts to play it here.', play:'Play', scroll:'Scroll' },
+ fa: { home:'خانه', about:'درباره من', skills:'مهارت‌ها', projects:'پروژه‌ها', gallery:'گالری', videos:'ویدیوها', contact:'تماس', hi:'سلام، من سید حسین هستم.', lead:'علاقه‌مند به برنامه‌نویسی، فناوری و ساخت ایده‌هایی که می‌توانند دنیا را تغییر دهند.', viewP:'مشاهده پروژه‌ها', contactB:'تماس با من', install:'نصب برنامه', aboutT:'درباره من', a1h:'من کیستم', a1:'من برنامه‌نویسی هستم که از تبدیل ایده‌های خام به محصولات تمیز و کاربردی لذت می‌برد. معرفی شخصی خود را اینجا بنویسید.', a2h:'علاقه‌مندی‌ها', a2:'توسعه وب، طراحی رابط کاربری و کشف فناوری‌های نو.', a3h:'مسیر و اهداف', a3:'بنویسید چطور برنامه‌نویسی را شروع کردید و قصد دارید به کجا برسید.', skillsT:'مهارت‌ها', skillNote:'برای تنظیم سطح واقعی هر مهارت، اسلایدر را بکشید.', projT:'پروژه‌ها', galT:'گالری', vidT:'ویدیوها', conT:'تماس با من', fName:'نام شما', fMail:'ایمیل شما', fMsg:'پیام شما', send:'ارسال پیام', sent:'برنامه ایمیل شما باز شد. آنجا ارسال را بزنید.', foot:'پورتفولیوی شخصی', live:'دمو زنده', src:'کد منبع', tech:'فناوری‌ها', feat:'ویژگی‌ها', noVid:'فایل ویدیو را در lib/data.ts اضافه کنید تا اینجا پخش شود.', play:'پخش', scroll:'اسکرول' },
+}
