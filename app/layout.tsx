@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { Bricolage_Grotesque, Vazirmatn } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import Providers from '@/components/Providers'
-const lat = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-lat', display: 'swap' })
-const fa = Vazirmatn({ subsets: ['arabic'], variable: '--font-fa', display: 'swap' })
+const lat = localFont({ src: './fonts/Outfit.woff2', variable: '--font-lat', display: 'swap' })
+const fa = localFont({ src: './fonts/Vazirmatn.woff2', variable: '--font-fa', display: 'swap' })
 export const metadata: Metadata = {
   title: 'Seyed Hossein | Personal Portfolio',
   description: 'Personal portfolio of Seyed Hossein: developer, creative thinker, technology enthusiast.',

@@ -48,7 +48,7 @@ export default function Hero() {
         <motion.div style={{ y: ay, rotate: rot }} className="order-first mx-auto aspect-[3/4] max-h-[44svh] w-[min(56vw,360px)] md:order-none md:max-h-[68svh]">
           {/* Replace the initials with <img src="/me.jpg" className="absolute inset-0 h-full w-full object-cover" alt="Seyed Hossein" /> */}
           <div className="relative grid h-full w-full animate-[spin_0s] place-items-center overflow-hidden rounded-[44%_56%_40%_60%/50%_40%_60%_50%] bg-[conic-gradient(from_200deg,var(--ac),var(--ac2),#7b6cff,var(--ac))]">
-            <span className="text-7xl font-extrabold text-white/90">SH</span>
+            <img src="/my.png" className="absolute inset-0 h-full w-full object-cover" alt="Seyed Hossein" />
           </div>
           <motion.span animate={{ y: [0, -12, 0] }} transition={{ repeat: Infinity, duration: 5 }} className="glass absolute -start-3 top-[12%] px-4 py-2 text-sm !rounded-2xl">{'{ code }'}</motion.span>
           <motion.span animate={{ y: [0, 12, 0] }} transition={{ repeat: Infinity, duration: 6 }} className="glass absolute -end-2 bottom-[14%] px-4 py-2 text-sm !rounded-2xl">UI / UX</motion.span>

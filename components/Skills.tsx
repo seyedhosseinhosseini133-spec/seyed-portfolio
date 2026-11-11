@@ -21,7 +21,6 @@ export default function Skills() {
               <motion.div whileHover={{ y: -6 }} className="glass grid gap-2.5 p-5">
                 <div className="flex justify-between font-semibold"><span>{n}</span><small className="text-mu">{v}%</small></div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-[var(--bd)]"><motion.i initial={{ width: 0 }} whileInView={{ width: `${v}%` }} viewport={{ once: true }} transition={{ duration: 1.3, ease: [.2, .7, .2, 1] }} className="block h-full rounded-full bg-gradient-to-r from-ac to-ac2" /></div>
-                <input type="range" min={0} max={100} value={v} aria-label={n} onChange={e => set(n, +e.target.value)} className="w-full accent-[var(--ac)]" />
               </motion.div>
             </Reveal>
           )
