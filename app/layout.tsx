@@ -7,7 +7,7 @@ const fa = localFont({ src: './fonts/Vazirmatn.woff2', variable: '--font-fa', di
 export const metadata: Metadata = {
   title: 'Seyed Hossein | Personal Portfolio',
   description: 'Personal portfolio of Seyed Hossein: developer, creative thinker, technology enthusiast.',
-  manifest: '/manifest.webmanifest', icons: { icon: '/icon.svg', apple: '/icon.svg' },
+  manifest: `${process.env.NEXT_PUBLIC_BASE_PATH}/manifest.webmanifest`, icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH}/icon.svg`, apple: `${process.env.NEXT_PUBLIC_BASE_PATH}/icon.svg` },
   appleWebApp: { capable: true, title: 'Seyed Hossein', statusBarStyle: 'black-translucent' },
   openGraph: { title: 'Seyed Hossein', description: 'Personal Portfolio', type: 'website' },
 }
