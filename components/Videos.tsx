@@ -13,6 +13,7 @@ function Player({ v }: { v: (typeof VIDEOS)[number] }) {
     <div className="glass overflow-hidden">
       <div className="grid aspect-video place-items-center" style={{ background: `linear-gradient(135deg,${v.c[0]},${v.c[1]})` }}>
         {v.src ? <video ref={r} src={v.src} poster={v.poster} playsInline preload="metadata" className="h-full w-full object-cover" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onTimeUpdate={e => setP(e.currentTarget.currentTime / (e.currentTarget.duration || 1) * 100)} onClick={toggle} />
+          : v.poster ? <img src={v.poster} alt={v[lang][0]} loading="lazy" decoding="async" className="h-full w-full object-cover" />
           : <p className="p-4 text-center text-sm text-white">{t('noVid')}</p>}
       </div>
       {v.src && (

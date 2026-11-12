@@ -12,14 +12,14 @@ export default function Contact() {
     location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Portfolio: ' + f.get('n'))}&body=${encodeURIComponent(f.get('m') + '\n\n' + f.get('e'))}`
     setMsg(t('sent')); e.currentTarget.reset()
   }
-  const links: [string, string, string][] = [['Email', CONTACT.email, `mailto:${CONTACT.email}`], ['Telegram', '@telegram', CONTACT.telegram], ['Instagram', '@instagram', CONTACT.instagram], ['GitHub', 'github', CONTACT.github]]
+  const links: [string, string, string][] = [['Email', CONTACT.email, `mailto:${CONTACT.email}`], ['Phone', CONTACT.phone, `tel:${CONTACT.tel}`], ['Instagram', `@${CONTACT.instagram}`, `https://instagram.com/${CONTACT.instagram}`]]
   const inp = 'w-full rounded-2xl border border-[var(--bd)] bg-[var(--gl)] px-4 py-3 text-tx placeholder:text-mu'
   return (
     <section id="contact" className="px-[6vw] pb-24 pt-28">
       <Reveal><H2>{t('conT')}</H2></Reveal>
       <div className="grid gap-6 md:grid-cols-2">
         <Reveal className="grid content-start gap-3">
-          {links.map(([a, b, h]) => <a key={a} href={h} target="_blank" rel="noopener" className="glass flex justify-between !rounded-2xl px-5 py-4 transition hover:-translate-y-1"><b>{a}</b><span className="text-mu">{b}</span></a>)}
+          {links.map(([a, b, h]) => <a key={a} href={h} target={h.startsWith('http') ? '_blank' : undefined} rel="noopener" className="glass flex justify-between !rounded-2xl px-5 py-4 transition hover:-translate-y-1"><b>{a}</b><span className="text-mu">{b}</span></a>)}
         </Reveal>
         <Reveal delay={.1}>
           <form onSubmit={submit} className="glass grid gap-3 p-6">

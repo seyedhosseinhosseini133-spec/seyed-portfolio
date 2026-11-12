@@ -1,17 +1,17 @@
 export type Lang = 'en' | 'fa'
 /* ===== EDIT YOUR CONTENT HERE ===== */
 export const SKILLS: [string, number][] = [['HTML',100],['CSS',100],['JavaScript',92],['PHP',95],['MySQL',100],['Python',90],['C++',80],['C#',100],['React',75],['Next.js',90 ],['UI/UX Design',100]]
-export const CONTACT = { email: 'hello@example.com', telegram: 'https://t.me/', instagram: 'https://instagram.com/', github: 'https://github.com/' }
+export const CONTACT = { email: 'seyedhosseinhosseini133@gmail.com', phone: '09335307870', tel: '+989335307870', instagram: 'Seyed333Hossein333' }
 const B = process.env.NEXT_PUBLIC_BASE_PATH || ''
 type PText = { n: string; d: string; l: string; f: string[] }
 export const PROJECTS: { img: string; c: [string, string]; tech: string[]; demo: string; code: string; en: PText; fa: PText }[] = [
- { img: `${B}/projects/p1.jpg`, c: ['#5ee6c0','#4aa8ff'], tech: ['HTML','CSS','JavaScript'], demo: 'https://seyedhosseinhosseini133-spec.github.io/my-website1/', code: 'https://github.com/',
+ { img: `${B}/projects/p1.jpg`, c: ['#5ee6c0','#4aa8ff'], tech: ['HTML','CSS','JavaScript'], demo: 'https://seyedhosseinhosseini133-spec.github.io/my-website1/', code: '',
    en: { n: 'Personal Website', d: 'My personal website — a place to showcase my skills and work.', l: 'A bilingual, responsive personal portfolio built from scratch. It includes dark and light themes, smooth animations and a clean layout that looks right on every screen size.', f: ['Responsive design','Dark and light theme','Bilingual (EN / FA)'] },
    fa: { n: 'سایت شخصی', d: 'وب‌سایت شخصی من؛ جایی برای معرفی مهارت‌ها و نمونه‌کارها.', l: 'یک وب‌سایت شخصی دوزبانه و واکنش‌گرا که از صفر ساخته شده؛ شامل حالت تاریک و روشن، انیمیشن‌های نرم و چیدمانی تمیز که روی همه‌ی اندازه‌های صفحه درست نمایش داده می‌شود.', f: ['طراحی واکنش‌گرا','حالت تاریک و روشن','دوزبانه (فارسی / انگلیسی)'] } },
- { img: `${B}/projects/p2.jpg`, c: ['#7b6cff','#ff7ab8'], tech: ['PHP','HTML','MySQL','CSS','Next.js','JavaScript'], demo: 'https://codehub-pro.ir', code: 'https://github.com/',
+ { img: `${B}/projects/p2.jpg`, c: ['#7b6cff','#ff7ab8'], tech: ['PHP','HTML','MySQL','CSS','Next.js','JavaScript'], demo: 'https://codehub-pro.ir', code: '',
    en: { n: 'AION', d: 'A very fast browser — even faster than Google.', l: 'AION is a lightweight, speed-first web browser: instant page loads, a minimal interface and strong privacy. It is engineered to feel faster than Google Chrome.', f: ['Blazing-fast page loads','Minimal, clean interface','Privacy focused'] },
    fa: { n: 'AION', d: 'یک مرورگر خیلی سریع؛ حتی سریع‌تر از گوگل.', l: 'AION یک مرورگر وب سبک و پرسرعت است: بارگذاری فوری صفحات، رابط کاربری ساده و حریم خصوصی قوی. طوری طراحی شده که حتی از گوگل کروم هم سریع‌تر حس شود.', f: ['بارگذاری فوق‌سریع صفحات','رابط کاربری ساده و تمیز','تمرکز بر حریم خصوصی'] } },
- { img: `${B}/projects/p3.jpg`, c: ['#ffb454','#ff5f6d'], tech: ['React','PHP','HTML','CSS','JavaScript','Python'], demo: '#', code: 'https://github.com/',
+ { img: `${B}/projects/p3.jpg`, c: ['#ffb454','#ff5f6d'], tech: ['React','PHP','HTML','CSS','JavaScript','Python'], demo: '#', code: '',
    en: { n: 'Aio', d: 'An AI built for chatting.', l: 'Aio is a conversational AI assistant: chat naturally, get instant answers and automate everyday tasks through a friendly, multilingual interface.', f: ['Natural conversation','Instant answers','Multilingual support'] },
    fa: { n: 'Aio', d: 'یک هوش مصنوعی برای چت کردن.', l: 'Aio یک دستیار هوش مصنوعی گفت‌وگویی است: به‌صورت طبیعی چت کنید، پاسخ فوری بگیرید و کارهای روزمره را با یک رابط دوستانه و چندزبانه خودکار کنید.', f: ['گفت‌وگوی طبیعی','پاسخ‌های فوری','پشتیبانی چندزبانه'] } },
 ]
@@ -25,8 +25,8 @@ export const GALLERY: { w: number; h: number; c: [string, string]; src: string }
 ]
 /* src: video path in /public (e.g. '/videos/a.mp4'), poster optional */
 export const VIDEOS: { src: string; poster?: string; c: [string, string]; en: [string, string]; fa: [string, string] }[] = [
- { src: '', c: ['#0f2027','#4aa8ff'], en: ['Video One','Short description of the first video.'], fa: ['ویدیو اول','توضیح کوتاه درباره ویدیو اول.'] },
- { src: '', c: ['#41295a','#5ee6c0'], en: ['Video Two','Short description of the second video.'], fa: ['ویدیو دوم','توضیح کوتاه درباره ویدیو دوم.'] },
+ { src: '', poster: `${B}/videos/cover.jpg`, c: ['#0f2027','#4aa8ff'], en: ['Video One','Short description of the first video.'], fa: ['ویدیو اول','توضیح کوتاه درباره ویدیو اول.'] },
+ { src: '', poster: `${B}/videos/cover.jpg`, c: ['#41295a','#5ee6c0'], en: ['Video Two','Short description of the second video.'], fa: ['ویدیو دوم','توضیح کوتاه درباره ویدیو دوم.'] },
 ]
 export const ROLES: Record<Lang, string[]> = {
   en: ['Developer','Programming Teacher','App Designer','Windows & Mobile App Designer','Web Designer'],

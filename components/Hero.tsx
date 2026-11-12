@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowDown, Github, Send, Instagram, Mail } from 'lucide-react'
+import { ArrowDown, Phone, Instagram, Mail } from 'lucide-react'
 import { useApp } from './Providers'
 import { InstallButton } from './Chrome'
 import { Magnetic } from './ui'
@@ -28,7 +28,7 @@ export default function Hero() {
   const scale = useTransform(p, [0, 1], [1, .5]), op = useTransform(p, [0, .75], [1, 0]), y = useTransform(p, [0, 1], [0, -140])
   const ay = useTransform(p, [0, 1], [0, 180]), rot = useTransform(p, [0, 1], [0, 14])
   const role = useType(ROLES[lang])
-  const socials = [[Github, CONTACT.github, 'GitHub'], [Send, CONTACT.telegram, 'Telegram'], [Instagram, CONTACT.instagram, 'Instagram'], [Mail, `mailto:${CONTACT.email}`, 'Email']] as const
+  const socials = [[Phone, `tel:${CONTACT.tel}`, 'Phone'], [Instagram, `https://instagram.com/${CONTACT.instagram}`, 'Instagram'], [Mail, `mailto:${CONTACT.email}`, 'Email']] as const
   return (
     <section id="home" ref={ref} className="relative h-[190svh]">
       <div className="sticky top-0 grid h-svh grid-cols-1 items-center gap-6 overflow-hidden px-[6vw] pt-24 md:grid-cols-[1.2fr_.8fr]">
@@ -42,7 +42,7 @@ export default function Hero() {
             <InstallButton />
           </div>
           <div className="mt-6 flex justify-center gap-3 md:justify-start">
-            {socials.map(([Icon, href, n]) => <a key={n} href={href} target="_blank" rel="noopener" aria-label={n} className="glass grid h-11 w-11 place-items-center !rounded-full transition hover:-translate-y-1"><Icon size={18} /></a>)}
+            {socials.map(([Icon, href, n]) => <a key={n} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener" aria-label={n} className="glass grid h-11 w-11 place-items-center !rounded-full transition hover:-translate-y-1"><Icon size={18} /></a>)}
           </div>
         </motion.div>
         <motion.div style={{ y: ay, rotate: rot }} className="order-first mx-auto aspect-[3/4] max-h-[44svh] w-[min(56vw,360px)] md:order-none md:max-h-[68svh]">
