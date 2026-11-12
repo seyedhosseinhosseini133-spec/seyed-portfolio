@@ -34,7 +34,7 @@ export default function Projects() {
             <motion.button key={i} onClick={() => setSel(i)} whileHover={{ y: -8 }} className={`glass group w-[78vw] overflow-hidden text-start md:w-[420px] ${i % 2 ? 'mt-8' : ''}`}>
               <motion.div layoutId={`pv${i}`} className="relative grid aspect-[16/10] place-items-center overflow-hidden text-4xl font-extrabold text-white/90" style={{ background: grad(p.c) }}>
                 <span aria-hidden className="absolute px-4 text-center">{p[lang].n}</span>
-                {p.img && <img src={p.img} alt={p[lang].n} loading="lazy" decoding="async" onError={e => { e.currentTarget.style.opacity = '0' }} className="relative h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />}
+                {p.img && <img src={p.img} alt={p[lang].n} decoding="async" onError={e => { e.currentTarget.style.opacity = '0' }} className="relative h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />}
               </motion.div>
               <div className="p-5"><h3 className="font-bold">{p[lang].n}</h3><p className="my-1.5 mb-3 text-sm text-mu">{p[lang].d}</p>
                 <div className="flex flex-wrap gap-1.5">{p.tech.map(x => <span key={x} className="rounded-full border border-[var(--bd)] px-2.5 py-0.5 text-xs">{x}</span>)}</div></div>
