@@ -9,4 +9,12 @@ body{background:var(--bg);color:var(--tx);font-family:var(--font-lat),var(--font
 .grad-t{background:linear-gradient(100deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .grad-b{background:linear-gradient(100deg,var(--ac),var(--ac2));color:#041012}
 :focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+@keyframes splash-spin{to{transform:rotate(1turn)}}
+@keyframes splash-drift{from{transform:translate3d(-3%,-2%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.14)}}
+@keyframes splash-pulse{0%,100%{opacity:.2;transform:scale(.9)}50%{opacity:.42;transform:scale(1.08)}}
+.splash-aurora{position:absolute;inset:-25%;background:radial-gradient(38% 38% at 32% 30%,var(--ac) 0%,transparent 62%),radial-gradient(42% 42% at 70% 70%,var(--ac2) 0%,transparent 62%);opacity:.3;filter:blur(70px);animation:splash-drift 9s ease-in-out infinite alternate}
+.splash-grid{position:absolute;inset:0;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:46px 46px;opacity:.22;-webkit-mask-image:radial-gradient(58% 58% at 50% 50%,#000 0%,transparent 100%);mask-image:radial-gradient(58% 58% at 50% 50%,#000 0%,transparent 100%)}
+.splash-glow{position:absolute;height:190%;width:190%;border-radius:9999px;background:radial-gradient(closest-side,var(--ac),transparent 72%);opacity:.32;filter:blur(18px);animation:splash-pulse 2.4s ease-in-out infinite}
+.splash-ring{position:absolute;inset:-4px;border-radius:9999px;background:conic-gradient(from 0deg,transparent 0deg,var(--ac) 70deg,transparent 150deg,var(--ac2) 250deg,transparent 330deg);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));animation:splash-spin 2.2s linear infinite}
+.splash-ring--slow{inset:-14px;opacity:.45;animation-duration:4s;animation-direction:reverse}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

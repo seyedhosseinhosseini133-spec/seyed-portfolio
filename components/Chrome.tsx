@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import { Home, User, Sparkles, FolderKanban, Images, Video, Mail, Sun, Moon, Menu, X } from 'lucide-react'
 import { useApp } from './Providers'
 
@@ -22,15 +22,83 @@ export function Background() {
 }
 
 export function Splash() {
+  const reduce = useReducedMotion()
   const [show, setShow] = useState(true)
-  useEffect(() => { const t = setTimeout(() => setShow(false), 1100); return () => clearTimeout(t) }, [])
+  const [pct, setPct] = useState(0)
+  const brand = 'SEYED HOSSEIN'
+  useEffect(() => {
+    const t = setTimeout(() => setShow(false), reduce ? 700 : 1750)
+    return () => clearTimeout(t)
+  }, [reduce])
+  useEffect(() => {
+    if (reduce) { setPct(100); return }
+    let raf = 0, start = 0
+    const tick = (now: number) => {
+      if (!start) start = now
+      const p = Math.min(1, (now - start) / 1500)
+      setPct(Math.round(100 * (1 - Math.pow(1 - p, 3))))
+      if (p < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [reduce])
   return (
     <AnimatePresence>
       {show && (
-        <motion.div exit={{ opacity: 0 }} transition={{ duration: .7 }} className="fixed inset-0 z-[100] grid place-items-center bg-bg">
-          <div className="flex flex-col items-center gap-5">
-            <motion.img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`} alt="Seyed Hossein" initial={{ opacity: .2, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1 }} className="h-16 w-auto max-w-[64vw] object-contain sm:h-20" />
-            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .2, duration: .8 }} className="text-[10px] font-semibold uppercase tracking-[.4em] text-mu">Personal Portfolio</motion.span>
+        <motion.div role="status" aria-label="Loading" exit={{ opacity: 0, scale: reduce ? 1 : 1.06 }} transition={{ duration: reduce ? .3 : .8, ease: [.4, 0, .2, 1] }} className="splash fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-bg">
+          <div aria-hidden className="splash-aurora" />
+          <div aria-hidden className="splash-grid" />
+          <div aria-hidden="true" className="relative flex flex-col items-center px-6">
+            <div className="relative mb-7 grid h-28 w-28 place-items-center sm:h-32 sm:w-32">
+              <span aria-hidden className="splash-glow" />
+              <span aria-hidden className="splash-ring" />
+              <span aria-hidden className="splash-ring splash-ring--slow" />
+              <motion.img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`}
+                alt=""
+                initial={reduce ? { opacity: 0 } : { opacity: 0, scale: .78 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: .9, ease: [.2, .8, .2, 1] }}
+                className="relative z-10 h-16 w-auto max-w-[82%] object-contain drop-shadow-[0_0_18px_rgba(94,230,192,.45)] sm:h-20"
+              />
+            </div>
+            <div dir="ltr" className="flex items-end overflow-hidden pb-1">
+              {brand.split('').map((ch, i) => (
+                <motion.span
+                  key={i}
+                  initial={reduce ? { opacity: 0 } : { y: '120%', opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={reduce ? { duration: .3 } : { delay: .28 + i * .035, duration: .65, ease: [.2, .8, .2, 1] }}
+                  className="text-lg font-extrabold tracking-[.26em] text-tx drop-shadow-[0_0_16px_rgba(94,230,192,.3)] sm:text-2xl"
+                >
+                  {ch === ' ' ? '\u00A0' : ch}
+                </motion.span>
+              ))}
+            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: reduce ? 0 : .75, duration: .6 }}
+              className="mt-4 flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[.42em] text-mu"
+            >
+              <span className="h-px w-6 bg-gradient-to-r from-transparent to-[var(--bd)]" />
+              Personal Portfolio
+              <span className="h-px w-6 bg-gradient-to-l from-transparent to-[var(--bd)]" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: reduce ? 0 : .5, duration: .6 }}
+              className="mt-9 w-[min(78vw,250px)]"
+            >
+              <div className="relative h-[3px] overflow-hidden rounded-full bg-[var(--bd)]">
+                <div className="absolute inset-y-0 start-0 rounded-full bg-gradient-to-r from-ac to-ac2 shadow-[0_0_14px_var(--ac)]" style={{ width: `${pct}%`, transition: 'width .08s linear' }} />
+              </div>
+              <div className="mt-2.5 flex items-center justify-between text-[9px] font-semibold uppercase tracking-[.3em] text-mu">
+                <span>Loading</span>
+                <span className="tabular-nums tracking-[.14em] text-tx">{pct}%</span>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       )}
