@@ -28,7 +28,10 @@ export function Splash() {
     <AnimatePresence>
       {show && (
         <motion.div exit={{ opacity: 0 }} transition={{ duration: .7 }} className="fixed inset-0 z-[100] grid place-items-center bg-bg">
-          <motion.b initial={{ opacity: .2, letterSpacing: '.1em' }} animate={{ opacity: 1, letterSpacing: '.4em' }} transition={{ duration: 1.1 }} className="text-xl">SEYED HOSSEIN</motion.b>
+          <div className="flex flex-col items-center gap-5">
+            <motion.img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`} alt="Seyed Hossein" initial={{ opacity: .2, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1 }} className="h-16 w-auto max-w-[64vw] object-contain sm:h-20" />
+            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .2, duration: .8 }} className="text-[10px] font-semibold uppercase tracking-[.4em] text-mu">Personal Portfolio</motion.span>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
@@ -77,7 +80,7 @@ export function Nav() {
         <AnimatePresence>
           {open && (
             <motion.div initial={{ opacity: 0, y: -10, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -10, scale: .97 }} transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-              className="glass absolute left-1/2 top-full mt-2 flex w-[calc(100vw-32px)] max-w-[320px] -translate-x-1/2 flex-col gap-1 !rounded-3xl p-2">
+              className="absolute left-1/2 top-full mt-2 flex max-h-[calc(100dvh-84px)] w-[calc(100vw-32px)] max-w-[320px] -translate-x-1/2 flex-col gap-1 overflow-y-auto overscroll-contain rounded-3xl border border-[var(--bd)] bg-[var(--bg)] p-2 shadow-[var(--sh)]">
               {LINKS.map(([id, Icon]) => (
                 <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className={`relative flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors ${active === id ? 'text-bg' : 'text-tx'}`}>
                   {active === id && <motion.span layoutId="pill-m" className="absolute inset-0 -z-0 rounded-2xl bg-tx" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}

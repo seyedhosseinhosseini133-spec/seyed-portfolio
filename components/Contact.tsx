@@ -31,7 +31,10 @@ export default function Contact() {
           </form>
         </Reveal>
       </div>
-      <footer className="mt-20 text-center text-sm text-mu">© 2026 SEYED HOSSEIN · {t('foot')}</footer>
+      <footer className="mt-20 flex flex-col items-center gap-3 text-center text-sm text-mu">
+        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`} alt="Seyed Hossein" className="h-10 w-auto opacity-80" />
+        <span>© 2026 SEYED HOSSEIN · {t('foot')}</span>
+      </footer>
     </section>
   )
 }

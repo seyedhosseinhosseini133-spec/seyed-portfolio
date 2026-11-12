@@ -41,12 +41,12 @@ export default function Projects() {
       </div>
       <AnimatePresence>
         {o && sel !== null && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSel(null)} className="fixed inset-0 z-[80] grid place-items-center bg-black/55 p-[3vw] backdrop-blur-md">
-            <motion.div role="dialog" aria-modal="true" onClick={e => e.stopPropagation()} initial={{ y: 40, scale: .96 }} animate={{ y: 0, scale: 1 }} exit={{ y: 30, scale: .97, opacity: 0 }} className="glass relative max-h-[92svh] w-full max-w-[960px] overflow-auto bg-bg/70">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSel(null)} className="fixed inset-0 z-[80] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/70 p-3 sm:items-center sm:p-4">
+            <motion.div role="dialog" aria-modal="true" onClick={e => e.stopPropagation()} initial={{ y: 40, scale: .96 }} animate={{ y: 0, scale: 1 }} exit={{ y: 30, scale: .97, opacity: 0 }} className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-[960px] overflow-y-auto overscroll-contain rounded-[26px] border border-[var(--bd)] bg-[var(--bg)] shadow-[var(--sh)]">
               <button onClick={() => setSel(null)} aria-label="Close" className="absolute end-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-black/50 text-white"><X size={18} /></button>
-              <motion.div layoutId={`pv${sel}`} className="grid aspect-[21/9] place-items-center text-4xl font-extrabold text-white/90" style={{ background: grad(o.c) }}>{o[lang].n}</motion.div>
-              <div className="grid gap-4 p-6">
-                <h2 className="text-3xl font-extrabold">{o[lang].n}</h2><p className="text-mu">{o[lang].l}</p>
+              <div className="grid aspect-[16/9] place-items-center px-4 text-center text-3xl font-extrabold text-white/90 sm:aspect-[21/9] sm:text-4xl" style={{ background: grad(o.c) }}>{o[lang].n}</div>
+              <div className="grid gap-4 p-4 sm:p-6">
+                <h2 className="break-words text-2xl font-extrabold sm:text-3xl">{o[lang].n}</h2><p className="text-mu">{o[lang].l}</p>
                 <div><b>{t('tech')}</b><div className="mt-2 flex flex-wrap gap-1.5">{o.tech.map(x => <span key={x} className="rounded-full border border-[var(--bd)] px-2.5 py-0.5 text-xs">{x}</span>)}</div></div>
                 <div><b>{t('feat')}</b><ul className="ms-5 list-disc text-mu">{o[lang].f.map(f => <li key={f}>{f}</li>)}</ul></div>
                 <div className="flex flex-wrap gap-3">
