@@ -77,20 +77,22 @@ export function Nav() {
             {theme === 'dark' ? <Moon size={16} /> : <Sun size={16} />}
           </button>
         </nav>
-        <AnimatePresence>
-          {open && (
-            <motion.div initial={{ opacity: 0, y: -10, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -10, scale: .97 }} transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-              className="absolute left-1/2 top-full mt-2 flex max-h-[calc(100dvh-84px)] w-[calc(100vw-32px)] max-w-[320px] -translate-x-1/2 flex-col gap-1 overflow-y-auto overscroll-contain rounded-3xl border border-[var(--bd)] bg-[var(--bg)] p-2 shadow-[var(--sh)]">
-              {LINKS.map(([id, Icon]) => (
-                <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className={`relative flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors ${active === id ? 'text-bg' : 'text-tx'}`}>
-                  {active === id && <motion.span layoutId="pill-m" className="absolute inset-0 -z-0 rounded-2xl bg-tx" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}
-                  <span className="relative z-10"><Icon size={18} /></span>
-                  <span className="relative z-10 font-medium">{t(id)}</span>
-                </a>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="pointer-events-none absolute left-1/2 top-full mt-2 w-[calc(100vw-32px)] max-w-[320px] -translate-x-1/2">
+          <AnimatePresence>
+            {open && (
+              <motion.div initial={{ opacity: 0, y: -10, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -10, scale: .97 }} transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                className="pointer-events-auto flex max-h-[calc(100dvh-84px)] w-full flex-col gap-1 overflow-y-auto overscroll-contain rounded-3xl border border-[var(--bd)] bg-[var(--bg)] p-2 shadow-[var(--sh)]">
+                {LINKS.map(([id, Icon]) => (
+                  <a key={id} href={`#${id}`} onClick={() => setOpen(false)} className={`relative flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors ${active === id ? 'text-bg' : 'text-tx'}`}>
+                    {active === id && <motion.span layoutId="pill-m" className="absolute inset-0 -z-0 rounded-2xl bg-tx" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}
+                    <span className="relative z-10"><Icon size={18} /></span>
+                    <span className="relative z-10 font-medium">{t(id)}</span>
+                  </a>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </>
   )
